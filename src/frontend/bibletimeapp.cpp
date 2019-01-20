@@ -31,7 +31,10 @@ BibleTimeApp::BibleTimeApp(int &argc, char **argv)
 {
     setApplicationName("bibletime");
     setApplicationVersion(BT_VERSION);
-
+#if QT_VERSION >= 0x050700 && defined(Q_OS_LINUX)
+	setDesktopFileName("info.bibletime.BibleTime");
+#endif
+    
     // Support for retina displays
     this->setAttribute(Qt::AA_UseHighDpiPixmaps);
 }
